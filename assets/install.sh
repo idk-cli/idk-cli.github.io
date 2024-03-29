@@ -63,23 +63,15 @@ unzip -o "$TEMP_DIR/scripts.zip" -d "$TEMP_DIR"
 # Determine the executable name
 EXECUTABLE_NAME=$(determine_executable_name)
 
+BINNAME="${BINNAME:-idk}"
+BINDIR="${USRBINDIR:-/usr/local/bin}"
+
 # Move the appropriate executable to /usr/local/bin (requires sudo)
-sudo mv "$TEMP_DIR/idk-cli.github.io-$LATEST_VERSION/assets/$EXECUTABLE_NAME" "/usr/local/bin/idk"
-sudo chmod +x "/usr/local/bin/idk"
+sudo chmod +x "$TEMP_DIR/idk-cli.github.io-$LATEST_VERSION/assets/$EXECUTABLE_NAME"
+sudo mv "$TEMP_DIR/idk-cli.github.io-$LATEST_VERSION/assets/$EXECUTABLE_NAME" "$BINDIR/$BINNAME"
 
 # Cleanup
 rm -rf "$TEMP_DIR"
-
-if [ -f "$HOME/.bashrc" ]; then
-    echo "alias $ALIAS_NAME='$DOWNLOAD_PATH'" >> $HOME/.bashrc
-    source $HOME/.bashrc
-elif [ -f "$HOME/.bash_profile" ]; then
-    echo "alias $ALIAS_NAME='$DOWNLOAD_PATH'" >> $HOME/.bash_profile
-    source $HOME/.bash_profile
-else
-    echo "Error: Could not find .bashrc or .bash_profile to set the alias."
-    exit 1
-fi
 
 echo ""
 echo ""
