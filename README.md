@@ -1,1 +1,1 @@
-Github Repo for: (idk-cli.github.io/)[https://idk-cli.github.io/]
+Github Repo for: https://idk-cli.github.io
