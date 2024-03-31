@@ -247,7 +247,7 @@ footer {
     color: #ddd;
     text-align: center;
     padding: 1rem;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .mobileHeader {
