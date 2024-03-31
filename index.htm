@@ -3,33 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>idk CLI</title>
+    <link rel="icon" type="image/png" href="assets/idk_logo.png">
+    <title>IDK AI: Because it's okay not to remember thousands of commands</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>idk CLI Tool</h1>
-        </header>
-        <section class="download">
-            <p>To install idk, use the following command:</p>
-            <br/>
 
-            <pre><code>brew install idk</code></pre>
-        </section>
-        <br/>
-        <section class="examples">
-            <h2>Examples</h2>
-            <br/>
-            <div class="image-container">
-                <img src="path-to-your-image-1.jpg" alt="XYZ Example 1">
-                <p>Do this</p>
-            </div>
-            <div class="image-container">
-                <img src="path-to-your-image-2.jpg" alt="XYZ Example 2">
-                <p>Do that</p>
-            </div>
-        </section>
+<header>
+    <div class="logo">IDK AI <span class="logoIcon">¯\_(ツ)_/¯</span></div>
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#usage">Usage</a>
+    </nav>
+</header>
+
+<section id="download">
+    <h3><i class="strikethrough">Behind every stunning software was a developer tethered to the terminal, juggling commands</i></h3>
+    <h2>Not anymore!</h2>
+    <div class="code-container">
+        <code id="brewCommand">curl -o- https://idk-cli.github.io/scripts/install.sh | bash</code>
     </div>
+</section>
+
+<section id="features">
+    <div class="feature">
+        <div class="feature-text">
+            <h2>Write Terminal Commands in Plain English</h2>
+            <p>Because it's okay not to remember thousands of commands</p>
+            <div class="sub-features">
+                <ul>
+                    <li><b>Find Terminal Commands fast:</b> Never Search or Note down again.</li>
+                    <li><b>Private Script/Command Support:</b> Simply point your script's readme.</li>
+                    <li><b>Fast aliasing:</b> Alias your commands in Plain English</li>
+                </ul>
+            </div>
+        </div>
+        <div class="feature-gif">
+            <img src="assets/Feature_Command_Prompt.gif" alt="Feature 1 Demo">
+        </div>
+    </div>
+    <div class="feature">
+        <div class="feature-gif">
+            <img src="assets/Feature_Script_Prompt.gif" alt="Feature 2 Demo">
+        </div>
+        <div class="feature-text">
+            <h2>Replace all your Manual Workflows</h2>
+            <p>Create Workflow Scripts in Seconds not Hours</p>
+            <div class="sub-features">
+                <ul>
+                    <li><b>No more Complex Commands:</b> Easily grasp and utilize sophisticated commands.</li>
+                    <li><b>Save & Alias:</b> Instantly save and create aliases of your scripts for future use.</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Repeat the pattern for more features -->
+</section>
+
+<section id="pricing">
+    <h2>Pricing</h2>
+    <p>Find a plan that works for you</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Features</th>
+                <th>Free</th>
+                <th>Enterprise</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cost</td>
+                <td>$0<br/><button class="cta-button" onclick="redirectToURL('')">Download</button></td>
+                <td>$9/member/month<br/><button class="cta-button" onclick="redirectToURL('')">Let's Chat</button></td>
+            </tr>
+            <tr>
+                <td>Limit</td>
+                <td>15 Requests/Day</td>
+                <td>200 Requests/Day</td>
+            </tr>
+            <tr>
+                <td>Enterprise Privacy<br/><i class="pricingDetails">Prevent AIs from training their models on your data.</i></td>
+                <td></td>
+                <td>&#10003;</td>
+            </tr>
+            <tr>
+                <td>Script Sharing<br/><i class="pricingDetails">Allow team members to create and share scripts. Find existing scripts without reinventing wheel again and again.</i></td>
+                <td></td>
+                <td>&#10003;</td>
+            </tr>
+            <tr>
+                <td>Profiling<br/><i class="pricingDetails">Enable team members to share their setups, eliminating the need for lengthy environment and configurations.
+                </i></td>
+                <td></td>
+                <td>&#10003;</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="usage">
+    <h2>Usage</h2>
+    <p>Learn how to use IDK AI ¯\_(ツ)_/¯ to streamline your terminal tasks</p>
+    <div class="usage-examples">
+        <div class="command">
+            <h3>Login</h3>
+            <p>Login to IDK using your Google Account</p>
+            <code>idk --login</code>
+        </div>
+        <div class="command">
+            <h3>Execute Terminal Commands or Scripts</h3>
+            <p>Explain the command or script you want to execute in Plain English</p>
+            <code>idk [your prompt]</code>
+            <h5>Example</h5>
+            <code>
+                <p>user$ idk list all files in this folder</p>
+                <p>Do you want me to execute `ls`? (y/n):</p>
+            </code>
+        </div>
+        <div class="command">
+            <h3>Alias your Terminal Commands or Scripts</h3>
+            <p>Aliasing in plain English</p>
+            <code>idk [your prompt] --alias [alias_name]</code>
+            <h5>Example</h5>
+            <code>
+                <p>user$ idk show all hidden files --alias showallfiles</p>
+                <p>Do you want me to alias `ls -a` as `showallfiles`? (y/n):</p>
+            </code>
+        </div>
+        <div class="command">
+            <h3>Logout</h3>
+            <p>Logout from IDK</p>
+            <code>idk --logout</code>
+        </div>
+        <!-- Add more command examples as needed -->
+    </div>
+</section>
+
+<footer>
+    <p>Our Terminal Client is Open Source: <a href="https://github.com/idk-cli/idk_terminal">IDK CLI Terminal</a></p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,63 +1,260 @@
-/* Basic Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Base styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #E0E0E0;
-    line-height: 1.6;
-    padding: 20px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #282c34; /* Dark background by default */
+    color: #abb2bf; /* Light text by default */
+    transition: background-color 0.3s, color 0.3s;
+    padding-top: 70px; /* Adds padding to the top of the body to ensure content isn't hidden behind the fixed header */
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    overflow: hidden;
+.strikethrough {
+    text-decoration: line-through;
+}
+
+a {
+    color: #61afef;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #528bff;
 }
 
 header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #21252b; /* Darker shade for header */
+    color: #ffffff;
+    position: fixed; /* Fixes the header at the top of the viewport */
+    top: 0; /* Aligns the header at the top */
+    left: 0; /* Aligns the header to the left side */
+    width: 100%; /* Ensures the header extends across the full width of the viewport */
+    z-index: 1000; /* Ensures the header stays above all other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds a subtle shadow for depth */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logoIcon {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #fff;
+}
+
+/* Section styles */
+section {
+    padding: 2rem;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-h1 {
-    color: #1DB954;
+/* Feature section with alternating layout and matching text alignment */
+.feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the start (top) */
+    margin: 2rem 2rem;
+    padding: 1rem;
 }
 
-code, pre {
-    background-color: #333;
-    color: #FFF;
-    padding: 10px;
-    display: block;
-    overflow-x: auto;
+/* For the first feature and every even feature thereafter, 
+   place the text on the left and the gif on the right. */
+.feature:nth-child(odd) .feature-text {
+    text-align: left;
+    order: 1;
 }
 
-.image-container {
-    margin-bottom: 20px;
+.feature:nth-child(odd) .feature-gif {
+    order: 2;
 }
 
-img {
+/* For every odd feature after the first, 
+   place the gif on the left and the text on the right. */
+.feature:nth-child(even) .feature-text {
+    text-align: right;
+    order: 2;
+}
+
+.feature:nth-child(even) .feature-gif {
+    order: 1;
+}
+
+.feature-text, .feature-gif {
+    width: 45%;
+}
+
+.feature-gif {
+    display: flex;
+    justify-content: center; /* Centers the gif within its container */
+}
+
+.feature img {
     max-width: 100%;
     height: auto;
-    display: block;
+    border-radius: 8px;
 }
 
-@media screen and (min-width: 600px) {
-    .image-container {
-        display: flex;
-        justify-content: space-between;
+/* Adjusted Sub-feature styling for color consistency */
+.sub-features h4 {
+    margin-top: 1rem; /* Adds a bit of space above the sub-feature title */
+    font-size: 1.2rem; /* Slightly smaller than the main feature title */
+    color: #abb2bf; /* Adjusted to match main content color */
+}
+
+.sub-features ul {
+    list-style: inside; /* Positions the bullet points inside the list items */
+    padding-left: 0; /* Removes default padding */
+    text-align: left; /* Ensures text alignment matches the parent container */
+}
+
+.sub-features li {
+    margin-bottom: 0.5rem; /* Adds some space between sub-feature items */
+    color: #abb2bf; /* Adjusted to match the main content color for consistency */
+}
+
+/* Ensure right-aligned text sections maintain their alignment */
+.feature:nth-child(even) .sub-features ul {
+    text-align: right;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .feature {
+        flex-direction: column;
     }
 
-    .image-container img {
-        width: 48%;
+    .feature-text, .feature-gif {
+        width: 100%;
+        order: 0; /* Resets order for a natural stacked appearance */
+        text-align: center; /* Center-aligns text for better readability on small screens */
     }
 
-    .image-container p {
-        width: 48%;
-        padding-left: 20px;
+    .feature-gif {
+        margin-top: 20px;
+    }
+}
+
+.code-container {
+    background-color: #2c313a; /* Dark background for the code container */
+    color: #61afef; /* Light color for the text for contrast */
+    padding: 1rem;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+}
+
+code {
+    user-select: all; /* Ensures the text can be selected for copying */
+}
+
+#usage {
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center; /* Align text to the left */
+}
+
+.usage-examples {
+    margin-top: 2rem;
+}
+
+.command {
+    background-color: #2c313c; /* Slightly lighter than the main background for distinction */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    text-align: left; /* Ensure command descriptions and codes are left-aligned */
+}
+
+.command h3 {
+    color: #61afef; /* Matches the link color for consistency */
+}
+
+.command p, .command code {
+    color: #abb2bf; /* Light text color for readability */
+    text-align: left; /* Ensure text within these elements is left-aligned */
+}
+
+.command code {
+    background-color: #282c34; /* Dark background for code elements */
+    color: #61afef; /* Light color for the code text */
+    padding: 0.5rem;
+    display: block; /* Makes the code block display as block */
+    margin-top: 1rem; /* Adds space between the description and the code block */
+    border-radius: 4px;
+    user-select: all; /* Makes the code easily selectable */
+}
+
+/* Pricing table styles */
+#pricing table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    color: #fff; /* Ensure text is readable on dark */
+}
+
+#pricing th, #pricing td {
+    padding: 1rem;
+    border: 1px solid #565c64; /* Lighter border for contrast */
+    text-align: left;
+    background-color: #282c34; /* Matching the body background */
+}
+
+#pricing table th:first-child, #pricing table td:first-child {
+    width: 50%; /* Adjust this value as needed */
+}
+
+#pricing table th:first-child, #pricing table td:nth-child(2) {
+    width: 25%; /* Adjust this value as needed */
+}
+
+#pricing table th:first-child, #pricing table td:nth-child(3) {
+    width: 25%; /* Adjust this value as needed */
+}
+
+.pricingDetails {
+    font-size: 0.8em;
+}
+
+.cta-button {
+    margin-top: 1rem; /* Adjust as needed for spacing */
+}
+
+/* Footer styles */
+footer {
+    background-color: #21252b; /* Matching the header background */
+    color: #ddd;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .feature img {
+        width: 100%;
     }
 }
