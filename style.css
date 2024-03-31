@@ -5,7 +5,7 @@ body {
     background-color: #282c34; /* Dark background by default */
     color: #abb2bf; /* Light text by default */
     transition: background-color 0.3s, color 0.3s;
-    padding-top: 70px; /* Adds padding to the top of the body to ensure content isn't hidden behind the fixed header */
+    padding-top: 70px; /* Adjusted for fixed header */
 }
 
 .strikethrough {
@@ -28,14 +28,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #21252b; /* Darker shade for header */
+    background-color: #21252b;
     color: #ffffff;
-    position: fixed; /* Fixes the header at the top of the viewport */
-    top: 0; /* Aligns the header at the top */
-    left: 0; /* Aligns the header to the left side */
-    width: 100%; /* Ensures the header extends across the full width of the viewport */
-    z-index: 1000; /* Ensures the header stays above all other content */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds a subtle shadow for depth */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .logo {
@@ -49,8 +49,60 @@ header {
 }
 
 nav a {
-    margin-left: 20px;
+    margin: 0 10px; /* Increased spacing around links */
     color: #fff;
+    padding: 5px 10px; /* Added padding for easier touch */
+}
+
+/* Enhanced responsive header adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px; /* Reduced padding in mobile view for more space */
+    }
+
+    nav {
+        margin-top: 10px; /* Added space between logo and nav links */
+    }
+
+    nav a {
+        display: block; /* Stack links vertically */
+        margin: 5px 0; /* Adjust spacing for stacked layout */
+        width: 100%; /* Full width links for easier touch */
+        text-align: center; /* Center-align text in links */
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background-color: #21252b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the toggle button on small screens */
+        margin: 10px 0; /* Add some margin */
+    }
+
+    nav {
+        display: none; /* Hide the navigation links by default */
+    }
+
+    nav.active {
+        display: block; /* Display the navigation links when active */
+        padding: 0; /* Adjust padding to align links more centrally */
+    }
+
+    nav a {
+        display: block;
+        margin: 10px auto; /* Center align the links by setting margin to auto */
+        text-align: center;
+        width: fit-content; /* Make the link width as per the content */
+    }
 }
 
 /* Section styles */
@@ -59,167 +111,115 @@ section {
     text-align: center;
 }
 
-/* Feature section with alternating layout and matching text alignment */
+/* Feature sections */
 .feature {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align items at the start (top) */
-    margin: 2rem 2rem;
+    margin: 2rem 0;
     padding: 1rem;
 }
 
-/* For the first feature and every even feature thereafter, 
-   place the text on the left and the gif on the right. */
-.feature:nth-child(odd) .feature-text {
-    text-align: left;
-    order: 1;
+/* Desktop: Text on the left, GIF on the right */
+.feature:nth-child(odd) {
+    flex-direction: row; /* Keeps default direction for odd features */
 }
 
-.feature:nth-child(odd) .feature-gif {
-    order: 2;
-}
-
-/* For every odd feature after the first, 
-   place the gif on the left and the text on the right. */
-.feature:nth-child(even) .feature-text {
-    text-align: right;
-    order: 2;
-}
-
-.feature:nth-child(even) .feature-gif {
-    order: 1;
+/* Desktop: GIF on the left, Text on the right */
+.feature:nth-child(even) {
+    flex-direction: row-reverse; /* Reverses the order for even features */
 }
 
 .feature-text, .feature-gif {
-    width: 45%;
+    width: 50%; /* Adjust based on your design needs */
 }
 
-.feature-gif {
-    display: flex;
-    justify-content: center; /* Centers the gif within its container */
+/* Targeting the sub-features within the feature sections for desktop */
+.feature-text .sub-features ul {
+    list-style-type: none; /* Removes the default bullet points */
+    padding-left: 0; /* Removes indentation to align with other content */
 }
 
-.feature img {
-    max-width: 100%;
+/* Optional: Adding padding or margin to list items for better spacing */
+.feature-text .sub-features ul li {
+    margin-bottom: 0.5rem; /* Adjusts spacing between list items */
+}
+
+/* Ensure images are responsive */
+.feature-gif img {
+    width: 100%;
     height: auto;
-    border-radius: 8px;
-}
-
-/* Adjusted Sub-feature styling for color consistency */
-.sub-features h4 {
-    margin-top: 1rem; /* Adds a bit of space above the sub-feature title */
-    font-size: 1.2rem; /* Slightly smaller than the main feature title */
-    color: #abb2bf; /* Adjusted to match main content color */
-}
-
-.sub-features ul {
-    list-style: inside; /* Positions the bullet points inside the list items */
-    padding-left: 0; /* Removes default padding */
-    text-align: left; /* Ensures text alignment matches the parent container */
 }
 
 .sub-features li {
-    margin-bottom: 0.5rem; /* Adds some space between sub-feature items */
-    color: #abb2bf; /* Adjusted to match the main content color for consistency */
+    padding: 6px;
 }
 
-/* Ensure right-aligned text sections maintain their alignment */
-.feature:nth-child(even) .sub-features ul {
-    text-align: right;
-}
-
-/* Responsive adjustments for smaller screens */
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .feature {
+        display: block;
         flex-direction: column;
     }
 
     .feature-text, .feature-gif {
         width: 100%;
-        order: 0; /* Resets order for a natural stacked appearance */
-        text-align: center; /* Center-aligns text for better readability on small screens */
+        order: 0; /* Resetting order */
     }
 
+    /* Ensuring the GIF always comes first on mobile */
     .feature-gif {
-        margin-top: 20px;
+        order: -1; /* This places the GIF above the text */
+        margin-bottom: 20px; /* Adds some space between the GIF and the text below it */
     }
 }
 
 .code-container {
-    background-color: #2c313a; /* Dark background for the code container */
-    color: #61afef; /* Light color for the text for contrast */
+    background-color: #2c313a;
+    color: #61afef;
     padding: 1rem;
     border-radius: 4px;
-    position: relative;
     display: inline-block;
 }
 
 code {
-    user-select: all; /* Ensures the text can be selected for copying */
+    user-select: all;
 }
 
+/* Usage section */
 #usage {
     margin: 2rem auto;
     padding: 2rem;
-    text-align: center; /* Align text to the left */
+    text-align: center;
 }
 
-.usage-examples {
-    margin-top: 2rem;
-}
-
-.command {
-    background-color: #2c313c; /* Slightly lighter than the main background for distinction */
+.usage-examples .command {
+    background-color: #2c313c;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 8px;
-    text-align: left; /* Ensure command descriptions and codes are left-aligned */
-}
-
-.command h3 {
-    color: #61afef; /* Matches the link color for consistency */
-}
-
-.command p, .command code {
-    color: #abb2bf; /* Light text color for readability */
-    text-align: left; /* Ensure text within these elements is left-aligned */
+    text-align: left;
 }
 
 .command code {
-    background-color: #282c34; /* Dark background for code elements */
-    color: #61afef; /* Light color for the code text */
+    background-color: #282c34;
+    color: #61afef;
     padding: 0.5rem;
-    display: block; /* Makes the code block display as block */
-    margin-top: 1rem; /* Adds space between the description and the code block */
+    display: block;
+    margin-top: 1rem;
     border-radius: 4px;
-    user-select: all; /* Makes the code easily selectable */
+    user-select: all;
 }
 
-/* Pricing table styles */
+/* Pricing table */
 #pricing table {
     width: 80%;
-    border-collapse: collapse;
     margin: 0 auto;
-    color: #fff; /* Ensure text is readable on dark */
 }
 
 #pricing th, #pricing td {
     padding: 1rem;
-    border: 1px solid #565c64; /* Lighter border for contrast */
+    border: 1px solid #565c64;
     text-align: left;
-    background-color: #282c34; /* Matching the body background */
-}
-
-#pricing table th:first-child, #pricing table td:first-child {
-    width: 50%; /* Adjust this value as needed */
-}
-
-#pricing table th:first-child, #pricing table td:nth-child(2) {
-    width: 25%; /* Adjust this value as needed */
-}
-
-#pricing table th:first-child, #pricing table td:nth-child(3) {
-    width: 25%; /* Adjust this value as needed */
+    background-color: #282c34;
 }
 
 .pricingDetails {
@@ -227,34 +227,51 @@ code {
 }
 
 .cta-button {
-    margin-top: 1rem; /* Adjust as needed for spacing */
+    margin-top: 1rem;
 }
 
-/* Footer styles */
+/* Footer */
 footer {
-    background-color: #21252b; /* Matching the header background */
+    background-color: #21252b;
     color: #ddd;
     text-align: center;
     padding: 1rem;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin-top: 10px;
-        margin-left: 0;
-    }
+.mobileHeader {
+    display: none; /* Hide the table header on small screens */
+    font-size: 0.9em;
 }
 
+/* Additional responsive adjustments */
 @media (max-width: 600px) {
     .feature img {
         width: 100%;
+    }
+
+    /* Improvements for tables on small screens */
+    #pricing table, #pricing th, #pricing td {
+        display: block;
+        width: 100%;
+    }
+
+    #pricing th, #pricing td {
+        text-align: center;
+        padding: .5rem;
+    }
+
+    /* Stack table rows vertically */
+    #pricing tr {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    #pricing thead {
+        display: none; /* Hide the table header on small screens */
+    }
+
+    .mobileHeader {
+        display: block; /* Hide the table header on small screens */
     }
 }
