@@ -137,6 +137,16 @@
             </code>
         </div>
         <div class="command">
+            <h3>Get help running your internal Scripts</h3>
+            <p>Point to your Script's README and explain what you want to do in Plain English</p>
+            <code>idk [your prompt] --readme [readme file path]</code>
+            <h5>Example</h5>
+            <code>
+                <p>user$ idk sync my local folder 'test' with s3 folder 'abc' --readme /scripts/s3Script/README.md</p>
+                <p>Do you want me to execute `go run main.go sync --sourceFolder /test --DestinationBucket abc`? (y/n):</p>
+            </code>
+        </div>
+        <div class="command">
             <h3>Alias your Terminal Commands or Scripts</h3>
             <p>Aliasing in plain English</p>
             <code>idk [your prompt] --alias [alias_name]</code>
