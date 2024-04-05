@@ -23,10 +23,10 @@ determine_executable_name() {
         Linux)
             case "$ARCH" in
                 arm*|aarch64)
-                    echo "idk-linux-amd64"
+                    echo "idk-linux-armv7"
                     ;;
                 x86_64)
-                    echo "idk-linux-armv7"
+                    echo "idk-linux-amd64"
                     ;;
                 *)
                     echo "Unsupported architecture: $ARCH" >&2
