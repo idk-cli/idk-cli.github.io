@@ -48,6 +48,17 @@ determine_executable_name() {
                     ;;
             esac
             ;;
+        MINGW*|CYGWIN*|MSYS*)
+            case "$ARCH" in
+                x86_64)
+                    echo "idk-windows-amd64.exe"
+                    ;;
+                *)
+                    echo "Unsupported architecture: $ARCH" >&2
+                    exit 1
+                    ;;
+            esac
+            ;;
         *)
             echo "Unsupported operating system: $OS" >&2
             exit 1
