@@ -65,6 +65,9 @@ unzip -o "$TEMP_DIR/$TEMP_FILE_NAME" -d "$TEMP_DIR" >/dev/null 2>&1
 EXECUTABLE_NAME=$(determine_executable_name)
 
 # Move the appropriate executable to /usr/local/bin (requires sudo)
+echo "script needs sudo access to execute:"
+echo "sudo chmod +x \"$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME\""
+echo "mv \"$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME" "$INSTALL_DIR/$INSTALL_FILE\""
 sudo chmod +x "$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME"
 sudo mv "$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME" "$INSTALL_DIR/$INSTALL_FILE"
 
