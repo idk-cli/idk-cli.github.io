@@ -64,10 +64,11 @@ unzip -o "$TEMP_DIR/$TEMP_FILE_NAME" -d "$TEMP_DIR" >/dev/null 2>&1
 # Determine the executable name
 EXECUTABLE_NAME=$(determine_executable_name)
 
+# Inform the user about the need for sudo access
+echo "Requesting administrative access to install IDK to $INSTALL_DIR."
+echo "This access is required to move and set executable permissions for the IDK binary."
+
 # Move the appropriate executable to /usr/local/bin (requires sudo)
-echo "script needs sudo access to execute:"
-echo "sudo chmod +x \"$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME\""
-echo "mv \"$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME" "$INSTALL_DIR/$INSTALL_FILE\""
 sudo chmod +x "$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME"
 sudo mv "$TEMP_DIR/idk_terminal-$SCRIPT_LATEST_VERSION/binaries/$EXECUTABLE_NAME" "$INSTALL_DIR/$INSTALL_FILE"
 
