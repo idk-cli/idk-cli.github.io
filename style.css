@@ -281,6 +281,7 @@ header nav img {
   border-bottom: none;
 }
 
+<<<<<<< HEAD
 /* Usage Section Styling */
 .usage-section {
   background-color: black;
@@ -288,6 +289,10 @@ header nav img {
   text-align: center;
   padding: 4em 0;
   padding-top: 1rem;
+=======
+#brewCommand {
+    font-size: 1.2em;
+>>>>>>> 3acda0ff7202a1c46542febc21e7869e9ee1b53d
 }
 
 .container {
@@ -368,6 +373,61 @@ header nav img {
     max-width: 100%;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* Usage section */
+#usage {
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.usage-examples .command {
+    background-color: #2c313c;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.command code {
+    background-color: #282c34;
+    color: #61afef;
+    padding: 0.5rem;
+    display: block;
+    margin-top: 1rem;
+    border-radius: 4px;
+    user-select: all;
+}
+
+/* Pricing table */
+#pricing table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#pricing th, #pricing td {
+    padding: 1rem;
+    border: 1px solid #565c64;
+    text-align: left;
+    background-color: #282c34;
+}
+
+.pricingDetails {
+    font-size: 0.8em;
+}
+
+.openSourceDetails {
+    font-size: 0.8em;
+}
+
+.cta-button {
+    margin-top: 1rem;
+}
+
+/* Footer */
+>>>>>>> 3acda0ff7202a1c46542febc21e7869e9ee1b53d
 footer {
   background-color: #000;
   color: #fff;
