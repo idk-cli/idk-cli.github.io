@@ -281,7 +281,6 @@ header nav img {
   border-bottom: none;
 }
 
-<<<<<<< HEAD
 /* Usage Section Styling */
 .usage-section {
   background-color: black;
@@ -289,10 +288,6 @@ header nav img {
   text-align: center;
   padding: 4em 0;
   padding-top: 1rem;
-=======
-#brewCommand {
-    font-size: 1.2em;
->>>>>>> 3acda0ff7202a1c46542febc21e7869e9ee1b53d
 }
 
 .container {
@@ -373,8 +368,6 @@ header nav img {
     max-width: 100%;
   }
 }
-<<<<<<< HEAD
-=======
 
 /* Usage section */
 #usage {
@@ -427,7 +420,6 @@ header nav img {
 }
 
 /* Footer */
->>>>>>> 3acda0ff7202a1c46542febc21e7869e9ee1b53d
 footer {
   background-color: #000;
   color: #fff;
