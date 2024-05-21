@@ -451,54 +451,13 @@ footer .footer-content p a:hover {
   header .logo .logoIcon {
     font-size: 0.6rem;
   }
-  .hero .title-container .title {
-    font-size: 1rem;
-  }
-  .hero .title-container .cli-prefix {
-    font-size: 0.8rem;
-  }
-  .hero .subtitle {
-    font-size: 1rem;
-  }
   .command-line-section .section-title {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
   .command-line-section .section-subtitle {
     font-size: 1.8rem;
   }
   .command-line-section .command-line-block {
-    font-size: 0.5rem;
-  }
-}
-@media (max-width: 400px) {
-  .navigation .active,
-  .navigation .feature,
-  .navigation .pricing,
-  .navigation .usage {
-    display: none;
-  }
-  .hero {
-    height: 50vh;
-  }
-  header .logo .logoIcon {
-    font-size: 0.6rem;
-  }
-  .command-line-section .section-title {
-    font-size: 1rem;
-  }
-  .command-line-section .section-subtitle {
-    font-size: 1rem;
-  }
-  .command-line-section .command-line-block {
-    font-size: 0.5rem;
-  }
-  .command-line-section {
-    padding: 3rem;
-  }
-  .pricing-section {
-    font-size: 0.5rem;
-  }
-  .pricing-section .section-subtitle {
     font-size: 0.5rem;
   }
 }/*# sourceMappingURL=style.css.map */
